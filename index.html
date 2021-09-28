@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Password入力</title>
+        <script language="JavaScript" type="text/javascript">
+            function nextPage()
+            {
+                pwd = document.form1.pass.value;
+                location.href = pwd + ".html";
+                return false;
+            }
+        </script>  
+    </head>
+    <body>
+        <center>
+        <br>
+        <br>
+        <!-- onSubmit return かつ呼び出す関数内で、falseを返すと Enterキーの操作でフォームの更新が行われなくなる -->
+        <form name="form1" onSubmit="return nextPage()">
+        Input Password<br>
+        <input type="password" name="pass">
+        <p><input type="submit" value="送信"></p>
+        </form> 
+    </body>
+</html>

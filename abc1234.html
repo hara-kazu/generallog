@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>SendGeneralLog</title>
+</head>
+<script>
+	const url = "https://discord.com/api/webhooks/892476543102767115/NGpZxhJbfcMuaZUvqF8KFTGIHohwNVokqSK3m4Z-zazr-72LKQKDlFpk2wX40uQ003QY";
+	
+	function send() {
+		let message = { content: document.getElementById("log").value };
+		postData(url, message)
+			.then((data) => console.log(data))
+			.catch((error) => console.error(error));
+
+		function postData(url = ``, data = {})
+		{
+			return fetch(url, {
+				method: "POST",
+				mode: "cors",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify(data),
+			}).then((response) => response.text());
+		}
+	}
+  </script>
+<body>
+<form action="#" method="post">
+	<p>送信内容：<br>
+	<textarea id = "log"></textarea >
+</form>
+<p><button onclick="send()">メッセージを送る</button></p>
+</body>
+</html>
